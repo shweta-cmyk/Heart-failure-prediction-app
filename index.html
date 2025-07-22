@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Failure Prediction</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            text-align: center;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            margin: auto;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h2>Heart Disease Prediction</h2>
+    <form action="/predict" method="post">
+        <input type="text" name="Age" placeholder="Age" required>
+        <input type="text" name="Cholesterol" placeholder="Cholesterol" required>
+        <input type="text" name="RestingBP" placeholder="Resting Blood Pressure" required>
+        <input type="text" name="MaxHR" placeholder="Max Heart Rate" required>
+        <input type="text" name="Oldpeak" placeholder="Oldpeak" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+</body>
+</html>
